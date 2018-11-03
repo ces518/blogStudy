@@ -9,6 +9,7 @@ public abstract class Template {
     
     public final static String SUFFIX = ".ftl";
     // return templates
+    public final static String NOFRAME = "/noframe/noframe";
     public final static String MAIN = "template/main";
     public final static String MAIN_LEFT = "/template/left";
     public final static String MAIN_HEADER = "/template/header";
@@ -21,6 +22,7 @@ public abstract class Template {
     /* contents templates */
     public final static String HOME = "/main/home";
     public final static String JOIN = "/join/joinForm";
+    public final static String LOGIN = "/main/login";
     //member
     public final static String MEMBER_LIST = "/member/memberList";
     //board

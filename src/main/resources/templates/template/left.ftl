@@ -9,7 +9,7 @@
 						<#if currentMenu?number == menu.seq><#assign menuName = menu.menuName></#if>
 						<#-- 루트메뉴일경우 -->
 						<#if (menu.menuDepth == 0)>
-							<li>
+							<li <#if currentMenu?number == menu.seq> class="active"</#if> >
 								<a href="/${menuUrl}" <#if currentMenu?number == menu.seq> id="a_hover" </#if>>
 									<span>${menu.menuName}</span>
 								</a>
@@ -19,7 +19,7 @@
 						<#-- 루트메뉴가 아닐경우 -->
 						<#if (menu.menuDepth > 0)>
 								<ul>
-									<li>
+									<li <#if currentMenu?number == menu.seq> class="active"</#if> >
 										<a href="/${menuUrl}" <#if currentMenu?number == menu.seq> id="a_hover" </#if> >${menu.menuName}</a>
 									</li>
 								</ul>
@@ -32,5 +32,5 @@
 					</#list>
 				</#if>
 			</#if>
-	<li><a href="/${guestUrl}" <#if currentMenu?number == -1> id="a_hover" </#if> >방명록</a></li>
+	<li <#if currentMenu?number == -1> class="active"</#if> ><a href="/${guestUrl}" <#if currentMenu?number == -1> id="a_hover" </#if> >방명록</a></li>
 </ul>
