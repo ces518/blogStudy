@@ -40,20 +40,22 @@ public class URLInterceptor extends HandlerInterceptorAdapter{
                 
             ModelMap modelmap =   modelAndView.getModelMap();
             String viewName = modelAndView.getViewName();
-            
-            Map<String,String> templateMap  = Template.getTemplateMap();  
-            String viewTemplateName = viewName.split("/")[1].toUpperCase();
-            String templateHeader = templateMap.get(viewTemplateName + "_HEADER");
-            String templateLeft = templateMap.get(viewTemplateName + "_LEFT");
-            String templateFooter = templateMap.get(viewTemplateName + "_FOOTER");   
-            modelAndView.addObject("HEADER",templateHeader + Template.SUFFIX);
-            modelAndView.addObject("LEFT",templateLeft + Template.SUFFIX);
-            modelAndView.addObject("FOOTER",templateFooter + Template.SUFFIX);
-            if(modelmap.containsKey("template")){
-                String template = modelmap.get("template").toString();
-                modelAndView.addObject("template", template + Template.SUFFIX);
+                if(!viewName.contains("redirect")){
+
+    
+                Map<String,String> templateMap  = Template.getTemplateMap();  
+                String viewTemplateName = viewName.split("/")[1].toUpperCase();
+                String templateHeader = templateMap.get(viewTemplateName + "_HEADER");
+                String templateLeft = templateMap.get(viewTemplateName + "_LEFT");
+                String templateFooter = templateMap.get(viewTemplateName + "_FOOTER");   
+                modelAndView.addObject("HEADER",templateHeader + Template.SUFFIX);
+                modelAndView.addObject("LEFT",templateLeft + Template.SUFFIX);
+                modelAndView.addObject("FOOTER",templateFooter + Template.SUFFIX);
+                if(modelmap.containsKey("template")){
+                    String template = modelmap.get("template").toString();
+                    modelAndView.addObject("template", template + Template.SUFFIX);
+                }
             }
-            
         }
     }
 

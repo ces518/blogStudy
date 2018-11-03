@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import kr.or.blog.constant.Template;
+
 @Configuration
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -19,8 +21,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     private List<String> excludePathList = new ArrayList<>();
 
     {
+        excludePathList.add("/redirect:**");
         excludePathList.add("/error");
-        excludePathList.add("/redirect**");
+        excludePathList.add("/login");
+        excludePathList.add("/join");
+        excludePathList.add(Template.NOFRAME);
     }
     
 
