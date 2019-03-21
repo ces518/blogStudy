@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>FreeMarker Test</h2>
 </body>
 </html>
